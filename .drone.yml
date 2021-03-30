@@ -1,0 +1,20 @@
+kind: pipeline
+name: cloner
+
+steps:
+- name: klun
+  image: ubuntu:focal
+  environment:
+    URL:
+      from_secret: URL
+    PURL:
+      from_secret: PURL
+    BR:
+      from_secret: BR
+  commands:
+  - apt install -git -qqy
+  - git clone $URL klun
+  - cd klun
+  - git checkout -b $BR
+  - git push $PURL
+  - cd ../ && rm -rf klun
