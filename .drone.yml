@@ -12,7 +12,7 @@ steps:
     BR:
       from_secret: BR
   commands:
-  - apt install -git -qqy
+  - apt install git -qqy
   - git clone $URL klun
   - cd klun
   - git checkout -b $BR
