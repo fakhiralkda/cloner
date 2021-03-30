@@ -12,7 +12,8 @@ steps:
     BR:
       from_secret: BR
   commands:
-  - apt install git -qqy
+  - apt update -qqy > /dev/null
+  - apt install git -qqy > /dev/null
   - git clone $URL klun
   - cd klun
   - git checkout -b $BR
